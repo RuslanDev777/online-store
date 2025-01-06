@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@arslan-workspace/category": ["libs/category/src/index.ts"],
+      "@arslan-workspace/home": ["libs/home/src/index.ts"],
+      "@arslan-workspace/product": ["libs/product/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

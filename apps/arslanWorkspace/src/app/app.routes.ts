@@ -1,5 +1,6 @@
 import { animation } from '@angular/animations';
 import { Route } from '@angular/router';
+import { cartFeature, loadCart } from '@arslan-workspace/cart';
 import {
   productFeature,
   loadProducts,
@@ -35,5 +36,11 @@ export const appRoutes: Route[] = [
       provideState(productFeature),
       provideEffects({ loadProducts, loadProductsByCategories }),
     ],
+  },
+  {
+    path: 'cart',
+    loadComponent: () =>
+      import('@arslan-workspace/cart').then((m) => m.CartComponent),
+    providers: [provideState(cartFeature), provideEffects({ loadCart })],
   },
 ];

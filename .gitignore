@@ -5,3 +5,5 @@ dist/
 
 .angular/
 .nx/
+
+.angular

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@arslan-workspace/cart": ["libs/cart/src/index.ts"],
       "@arslan-workspace/category": ["libs/category/src/index.ts"],
       "@arslan-workspace/home": ["libs/home/src/index.ts"],
       "@arslan-workspace/product": ["libs/product/src/index.ts"]

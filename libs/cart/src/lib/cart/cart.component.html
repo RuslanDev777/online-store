@@ -1,2 +1,17 @@
-<p>Cart works!</p>
-{{ cart$ | async | json }}
+<ng-container *ngIf="cart$ | async as cart">
+  <div>
+    Name: {{ cart?.user?.name?.firstname }} {{ cart?.user?.name?.lastname }}
+  </div>
+  <div>Email: {{ cart?.user?.email }}</div>
+  <div>Phone: {{ cart?.user?.phone }}</div>
+  <div>
+    Address: {{ cart?.user?.address?.street }} {{ cart?.user?.address?.city }}
+  </div>
+
+  products:
+
+  <lib-product-list
+    [products]="cart.ProductDetails"
+    (deleteProduct)="delete($event)"
+  ></lib-product-list>
+</ng-container>

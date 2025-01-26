@@ -6,3 +6,51 @@
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+/* Стили для контейнера */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Равномерное распределение карточек */
+  gap: 16px; /* Промежутки между карточками */
+  margin: 0 auto;
+}
+
+/* Стили для карточек */
+.col-md-4 {
+  flex: 1 1 calc(33.333% - 16px); /* 3 карточки в ряд с отступами */
+  max-width: calc(33.333% - 16px); /* Максимальная ширина карточки */
+  box-sizing: border-box; /* Учитываем padding в ширину */
+}
+
+/* Стили для карточек Material */
+.example-card {
+  display: flex;
+  flex-direction: column; /* Располагаем элементы вертикально */
+  height: 100%; /* Растягиваем карточку по высоте */
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для красоты */
+  border-radius: 8px; /* Скругленные углы */
+}
+
+/* Стили для изображения */
+.example-card img {
+  object-fit: contain; /* Показываем всю картинку без обрезания */
+  height: 150px; /* Фиксированная высота изображения */
+  width: 100%; /* Ширина изображения равна карточке */
+  border-radius: 4px; /* Скругленные углы */
+  background-color: #f5f5f5; /* Добавляем фон, если изображение меньше блока */
+}
+
+/* Контент карточки */
+mat-card-content {
+  flex-grow: 1; /* Заполняем оставшееся пространство */
+  margin: 16px 0; /* Отступы сверху и снизу */
+}
+
+/* Кнопки действий */
+mat-card-actions {
+  display: flex;
+  justify-content: space-between; /* Раздвигаем кнопки */
+  margin-top: auto; /* Прижимаем кнопки вниз */
+}

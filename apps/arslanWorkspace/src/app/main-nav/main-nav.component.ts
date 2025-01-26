@@ -11,6 +11,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { selectCategories } from '@arslan-workspace/category';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'ecom-main-nav',
@@ -27,6 +28,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     AsyncPipe,
     RouterLink,
     RouterOutlet,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
   ],
 })
 export class MainNavComponent {

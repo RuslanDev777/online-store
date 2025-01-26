@@ -1,13 +1,11 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { productActions } from '../store/product.action';
-import {
-  selectProducts,
-  selectProductsByCategory,
-} from '../store/product.selector';
+import { Product, productActions } from '@arslan-workspace/store';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { productFeature } from '@arslan-workspace/store';
+import { cartActions } from 'libs/common/store/src/lib/cart/cart.action';
 
 @Component({
   selector: 'lib-product',
@@ -27,9 +25,13 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  products$ = this.store.select(selectProducts);
+  products$ = this.store.select(productFeature.selectProducts);
 
   ngOnInit(): void {
     // this.store.dispatch(productActions.loadProduct());
+  }
+
+  addToCart(product: Product) {
+    this.store.dispatch(cartActions.addProductToCart({ product }));
   }
 }

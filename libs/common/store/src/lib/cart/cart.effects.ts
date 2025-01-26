@@ -19,3 +19,18 @@ export const loadCart = createEffect(
   },
   { functional: true }
 );
+
+export const loadCartById = createEffect(
+  (actions$ = inject(Actions), cartService = inject(CartService)) => {
+    return actions$.pipe(
+      ofType(cartActions.loadCartById),
+      exhaustMap((action) =>
+        cartService.getCartById(action.id).pipe(
+          map((cart) => cartActions.cartByIdSuccess({ cart })),
+          catchError((error) => of(cartActions.cartByIdFailure({ error })))
+        )
+      )
+    );
+  },
+  { functional: true }
+);

@@ -1,3 +1,3 @@
 export * from './lib/cart/cart.component';
-export * from './lib/store/cart.selector';
-export * from './lib/store/cart.effects';
+export * from '../../common/store/src/lib/cart/cart.selector';
+export * from '../../common/store/src/lib/cart/cart.effects';

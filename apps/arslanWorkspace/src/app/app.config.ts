@@ -15,6 +15,8 @@ import { provideEffects } from '@ngrx/effects';
 import { provideHttpClient } from '@angular/common/http';
 import { CategoryEffects, categoryFeature } from '@arslan-workspace/category';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { loadUserProfile, userFeature } from '@arslan-workspace/store';
+import { cartFeature } from '@arslan-workspace/cart';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,7 +30,9 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideStore(),
     provideState(categoryFeature),
-    provideEffects([CategoryEffects]),
+    provideState(userFeature),
+    provideState(cartFeature),
+    provideEffects([CategoryEffects, { loadUserProfile }]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 };

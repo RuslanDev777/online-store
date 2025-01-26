@@ -16,3 +16,8 @@
   z-index: 1;
   background-color: #f1f1f1;
 }
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}

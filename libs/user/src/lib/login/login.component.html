@@ -1,0 +1,59 @@
+<p>login works!</p>
+{{ search.value }}
+
+<input type="text" placeholder="search text" [formControl]="search" />
+{{ loginForm.value | json }}
+{{ loginForm.valid }} valid
+<br />
+{{ loginForm.invalid }} invalid
+<br />
+{{ loginForm.status }} status
+<br />
+{{ loginForm.pristine }} pristine
+<br />
+{{ loginForm.dirty }} dirty
+<br />
+{{ loginForm.touched }} toched
+<br />
+{{ loginForm.untouched }} untoched
+
+<form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+  <mat-form-field class="example-full-width">
+    <mat-label>username</mat-label>
+    <input
+      type="text"
+      placeholder="username"
+      matInput
+      formControlName="username"
+    />
+    <mat-hint>Username must be your email!</mat-hint>
+    <mat-error *ngIf="loginForm.hasError('email', 'username')"
+      >Please enter a valid email address</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>password</mat-label>
+    <input
+      type="password"
+      placeholder="password"
+      matInput
+      formControlName="password"
+    />
+    <mat-error *ngIf="loginForm.hasError('minlength', 'password')"
+      >Please enter a valid password min 8</mat-error
+    >
+    <mat-error *ngIf="loginForm.hasError('maxlength', 'password')"
+      >Please enter a valid password max 16</mat-error
+    >
+  </mat-form-field>
+
+  <button
+    [disabled]="loginForm.invalid"
+    type="submit"
+    mat-raised-button
+    color="primary"
+  >
+    login
+  </button>
+</form>
